@@ -24,6 +24,12 @@
 			<thead>
 					<tr>
 					
+						<th><g:message code="album.artist.label" default="Artist" /></th>
+					
+						<g:sortableColumn property="dateCreated" title="${message(code: 'album.dateCreated.label', default: 'Date Created')}" />
+					
+						<g:sortableColumn property="genre" title="${message(code: 'album.genre.label', default: 'Genre')}" />
+					
 						<g:sortableColumn property="title" title="${message(code: 'album.title.label', default: 'Title')}" />
 					
 					</tr>
@@ -32,7 +38,13 @@
 				<g:each in="${albumInstanceList}" status="i" var="albumInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${albumInstance.id}">${fieldValue(bean: albumInstance, field: "title")}</g:link></td>
+						<td><g:link action="show" id="${albumInstance.id}">${fieldValue(bean: albumInstance, field: "artist")}</g:link></td>
+					
+						<td><g:formatDate date="${albumInstance.dateCreated}" /></td>
+					
+						<td>${fieldValue(bean: albumInstance, field: "genre")}</td>
+					
+						<td>${fieldValue(bean: albumInstance, field: "title")}</td>
 					
 					</tr>
 				</g:each>

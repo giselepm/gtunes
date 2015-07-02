@@ -32,20 +32,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${songInstance?.artist}">
+				<g:if test="${songInstance?.duration}">
 				<li class="fieldcontain">
-					<span id="artist-label" class="property-label"><g:message code="song.artist.label" default="Artist" /></span>
+					<span id="duration-label" class="property-label"><g:message code="song.duration.label" default="Duration" /></span>
 					
-						<span class="property-value" aria-labelledby="artist-label"><g:fieldValue bean="${songInstance}" field="artist"/></span>
+						<span class="property-value" aria-labelledby="duration-label"><g:fieldValue bean="${songInstance}" field="duration"/></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${songInstance?.album}">
+				<g:if test="${songInstance?.dateCreated}">
 				<li class="fieldcontain">
-					<span id="album-label" class="property-label"><g:message code="song.album.label" default="Album" /></span>
+					<span id="dateCreated-label" class="property-label"><g:message code="song.dateCreated.label" default="Date Created" /></span>
 					
-						<span class="property-value" aria-labelledby="album-label"><g:link controller="album" action="show" id="${songInstance?.album?.id}">${songInstance?.album?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${songInstance?.dateCreated}" /></span>
 					
 				</li>
 				</g:if>

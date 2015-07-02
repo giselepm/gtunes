@@ -26,9 +26,9 @@
 					
 						<g:sortableColumn property="title" title="${message(code: 'song.title.label', default: 'Title')}" />
 					
-						<g:sortableColumn property="artist" title="${message(code: 'song.artist.label', default: 'Artist')}" />
+						<g:sortableColumn property="duration" title="${message(code: 'song.duration.label', default: 'Duration')}" />
 					
-						<th><g:message code="song.album.label" default="Album" /></th>
+						<g:sortableColumn property="dateCreated" title="${message(code: 'song.dateCreated.label', default: 'Date Created')}" />
 					
 					</tr>
 				</thead>
@@ -38,9 +38,9 @@
 					
 						<td><g:link action="show" id="${songInstance.id}">${fieldValue(bean: songInstance, field: "title")}</g:link></td>
 					
-						<td>${fieldValue(bean: songInstance, field: "artist")}</td>
+						<td>${fieldValue(bean: songInstance, field: "duration")}</td>
 					
-						<td>${fieldValue(bean: songInstance, field: "album")}</td>
+						<td><g:formatDate date="${songInstance.dateCreated}" /></td>
 					
 					</tr>
 				</g:each>

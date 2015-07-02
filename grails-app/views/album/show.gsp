@@ -23,6 +23,33 @@
 			</g:if>
 			<ol class="property-list album">
 			
+				<g:if test="${albumInstance?.artist}">
+				<li class="fieldcontain">
+					<span id="artist-label" class="property-label"><g:message code="album.artist.label" default="Artist" /></span>
+					
+						<span class="property-value" aria-labelledby="artist-label"><g:link controller="artist" action="show" id="${albumInstance?.artist?.id}">${albumInstance?.artist?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${albumInstance?.dateCreated}">
+				<li class="fieldcontain">
+					<span id="dateCreated-label" class="property-label"><g:message code="album.dateCreated.label" default="Date Created" /></span>
+					
+						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${albumInstance?.dateCreated}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${albumInstance?.genre}">
+				<li class="fieldcontain">
+					<span id="genre-label" class="property-label"><g:message code="album.genre.label" default="Genre" /></span>
+					
+						<span class="property-value" aria-labelledby="genre-label"><g:fieldValue bean="${albumInstance}" field="genre"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${albumInstance?.songs}">
 				<li class="fieldcontain">
 					<span id="songs-label" class="property-label"><g:message code="album.songs.label" default="Songs" /></span>
